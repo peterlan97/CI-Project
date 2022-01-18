@@ -6,7 +6,7 @@ This Node.js service creates a Node.js server listening on port 8080, and uses h
 
 Within your local environment, you are able to have the Node server running and test it out, using a tool such as Postman to create requests. You would need to locally run the service using the below command:
 
-```javascript
+``` bash
 node index.js
 ```
 
