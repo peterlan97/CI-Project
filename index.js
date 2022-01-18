@@ -3,7 +3,9 @@ const PORT = 8080;
 
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "application/json");
-  console.error("Request", req);
+  // console.error is same as process.stderr.write
+  // The requirement did not specify what part of the logs should be logged, so I logged the request url
+  console.error(new Date().toLocaleString(), req.url);
   switch (req.url) {
     case "/calculate":
       if (req.method === "POST") {
@@ -14,6 +16,7 @@ const server = http.createServer((req, res) => {
             rawBody += data;
           });
           req.on("end", () => {
+            console.error(new Date().toLocaleString(), rawBody);
             numbers = JSON.parse(rawBody).numbers;
             var valid = numbers.every(function (element) {
               return typeof element === "number";
@@ -58,7 +61,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(200);
       res.end(
         JSON.stringify({
-          data: "Hello Peter World!",
+          data: "Hello World!",
         })
       );
       break;
