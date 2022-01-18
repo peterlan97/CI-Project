@@ -13,6 +13,19 @@ node index.js
 
 This will start the service. On the console will get a response saying Server listening on port 8080, which will indicate that it has started with no issues, and if you navigate to http://localhost:8080 on your browser, you will be greated by a message saying Hello World!.
 
+### Sample Request
+```
+POST http://localhost:8080/calculate
+
+Payload:
+
+{“numbers”: [10, 5]}
+
+Response:
+
+{"total": 15}
+```
+
 ### Dockerisation
 
 To Dockerize my Node service I created a Dockerfile that would put this service into a docker image. To build this image, you will run the below command:
@@ -37,7 +50,7 @@ To make sure this runs, and validates the tests correctly, its important to make
 
 To run the e2e test script locally, you just need to start it by running the below command.
 ``` bash 
-node e2etest.js
+node e2e-test.js
 ```
 
 
