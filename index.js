@@ -1,9 +1,8 @@
 const http = require("http");
 const PORT = 8080;
-// Create a local server to receive data from
+
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "application/json");
-  // Log each requests
   console.error("Request", req);
   switch (req.url) {
     case "/calculate":
@@ -16,7 +15,6 @@ const server = http.createServer((req, res) => {
           });
           req.on("end", () => {
             numbers = JSON.parse(rawBody).numbers;
-            // Validate that input params contains only numbers
             var valid = numbers.every(function (element) {
               return typeof element === "number";
             });
